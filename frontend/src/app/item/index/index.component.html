@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Item List</h1>
+
+  <a href="#" routerLink="/item/create/" class="btn btn-success">Create New Item</a>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Amout</th>
+      <th>Qty</th>
+      <th>Item</th>
+      <th width="220px">Action</th>
+    </tr>
+    <tr *ngFor="let Item of items">
+      <td>{{ Item.id }}</td>
+      <td>{{ Item.name }}</td>
+      <td>{{ Item.state }}</td>
+      <td>{{ Item.zip }}</td>
+      <td>{{ Item.amount }}</td>
+      <td>{{ Item.qty }}</td>
+      <td>{{ Item.item }}</td>
+      <td>
+        <a href="#" [routerLink]="['/item/', Item.id, 'edit']" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deleteItem(Item.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
